@@ -337,6 +337,51 @@ git push
 - `develop` ブランチに自分の研究紹介ファイルが追加されているか確認します。
 - 授業で merge しない指示がある場合は、PR を開いた状態のままにします。
 
+### 13. GitHub 上の feature ブランチを削除する
+
+Pull Request を `develop` に merge した後は、作業に使った feature ブランチを削除します。
+
+GitHub の Pull Request 画面で、merge 完了後に表示される次のボタンを押します。
+
+```text
+Delete branch
+```
+確認ポイント:
+
+- 削除するのは feature/add-research-introduction-yourname ブランチです。
+- develop や main は削除しません。
+- Pull Request が merge 済みであることを確認してから削除します。
+- 授業で merge しない指示がある場合は、PR を開いた状態のままにし、feature ブランチも削除しません。
+
+さらにローカルブランチ削除まで入れるなら、その後に続けて次を入れます。
+
+### 14. ローカルの feature ブランチを削除する
+
+GitHub 上の feature ブランチを削除した後、自分の PC に残っているローカルの feature ブランチも削除できます。
+
+まず、`develop` ブランチに移動します。
+
+```bash
+git switch develop
+```
+GitHub 上の最新の develop を取得します。
+
+```bash
+git pull origin develop
+```
+次に、ローカルの feature ブランチを削除します。
+
+```bash
+git branch -d feature/add-research-introduction-yourname
+```
+
+確認ポイント:
+
+git branch を実行して、feature/add-research-introduction-yourname が表示されなくなったか確認します。
+```bash
+git branch
+```
+
 ## 演習課題
 
 3人組または2人組で、自分の研究紹介を Pull Request として提出し、相手の研究紹介をレビューします。
